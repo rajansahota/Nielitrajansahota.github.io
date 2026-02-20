@@ -3,88 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Landing Page</title>
+    <title>FDP Portfolio | Rajan Sahota</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-        /* Quick internal CSS to make it look good instantly */
+        :root {
+            --primary: #3b82f6;
+            --secondary: #0f172a;
+            --accent: #60a5fa;
+            --bg-dark: #020617;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            color: #333;
-            background-color: #f4f4f9;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: #f1f5f9;
+            line-height: 1.7;
         }
+
+        /* Hero Section */
         header {
-            background: #2d3436;
-            color: white;
-            padding: 1rem 5%;
+            height: 80vh;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px;
-        }
-        .hero {
-            padding: 80px 5%;
             text-align: center;
-            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
-            color: white;
+            background: linear-gradient(rgba(2, 6, 23, 0.8), rgba(2, 6, 23, 0.9)), 
+                        url('https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            border-bottom: 1px solid var(--border);
         }
-        .container {
-            padding: 40px 5%;
+
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            background: linear-gradient(to bottom, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text p { font-size: 1.25rem; color: var(--accent); font-weight: 500; }
+
+        .container { max-width: 1200px; margin: -100px auto 50px; padding: 0 20px; }
+
+        /* Grid Layout */
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
         }
+
+        .section-title {
+            grid-column: 1 / -1;
+            margin-top: 4rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-left: 4px solid var(--primary);
+            padding-left: 15px;
+        }
+
         .card {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            padding: 2.5rem;
+            border-radius: 24px;
+            transition: 0.3s ease;
         }
-        footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
-            color: #666;
+
+        .card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        
+        .card i { font-size: 2rem; color: var(--primary); margin-bottom: 1rem; }
+
+        /* Tech Badges */
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+        .tag {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(59, 130, 246, 0.2);
         }
+
+        /* Curriculum List */
+        .curriculum-item { margin-bottom: 1.5rem; padding-left: 20px; border-left: 1px solid var(--border); }
+        .curriculum-item strong { color: var(--accent); display: block; }
+
+        footer { text-align: center; padding: 5rem 2rem; border-top: 1px solid var(--border); margin-top: 4rem; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo"><strong>BrandName</strong></div>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-        </nav>
+        <div class="hero-text">
+            <p>FACULTY DEVELOPMENT PROGRAM 2026</p>
+            <h1>Rajan Sahota</h1>
+            <p>NIELIT Ropar • Big Data & Data Science Specialist</p>
+        </div>
     </header>
 
-    <section class="hero">
-        <h1>Welcome to Your New Project</h1>
-        <p>A clean start for a faster workflow.</p>
-    </section>
+    <div class="container">
+        
+        <div class="grid">
+            <div class="card">
+                <i class="fab fa-python"></i>
+                <h3>Python for Data Science</h3>
+                <p>Advanced data manipulation and statistical analysis using the Python ecosystem.</p>
+                <div class="tech-tags">
+                    <span class="tag">NumPy</span>
+                    <span class="tag">Pandas</span>
+                    <span class="tag">Matplotlib</span>
+                    <span class="tag">Scikit-Learn</span>
+                </div>
+            </div>
 
-    <main class="container">
-        <div class="card">
-            <h3>Feature One</h3>
-            <p>Describe a key benefit or feature of your service here.</p>
+            <div class="card">
+                <i class="fas fa-database"></i>
+                <h3>Hadoop Ecosystem</h3>
+                <p>Mastering distributed storage and parallel processing for massive datasets.</p>
+                <div class="tech-tags">
+                    <span class="tag">HDFS</span>
+                    <span class="tag">MapReduce</span>
+                    <span class="tag">Apache Hive</span>
+                    <span class="tag">Sqoop</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-bolt"></i>
+                <h3>Real-time Processing</h3>
+                <p>Learning high-speed data ingestion and stream processing frameworks.</p>
+                <div class="tech-tags">
+                    <span class="tag">Apache Spark</span>
+                    <span class="tag">PySpark</span>
+                    <span class="tag">Kafka</span>
+                    <span class="tag">NoSQL</span>
+                </div>
+            </div>
+
+            <h2 class="section-title">Training Roadmap (Feb 16 - 20)</h2>
+            
+            <div class="card" style="grid-column: 1 / -1;">
+                <div class="curriculum-item">
+                    <strong>Day 1: Foundations of Big Data</strong>
+                    Introduction to Big Data characteristics (5Vs), HDFS Architecture, and setting up the Hadoop Multi-node cluster.
+                </div>
+                <div class="curriculum-item">
+                    <strong>Day 2: Data Wrangling with Python</strong>
+                    Scientific computing with NumPy, data frame manipulation with Pandas, and automated data cleaning techniques.
+                </div>
+                <div class="curriculum-item">
+                    <strong>Day 3: Distributed Computing with Spark</strong>
+                    In-memory processing with Apache Spark, RDDs, Spark SQL, and integrating PySpark for large-scale data tasks.
+                </div>
+                <div class="curriculum-item">
+                    <strong>Day 4: Machine Learning at Scale</strong>
+                    Implementing Regression, Clustering, and Classification algorithms on Big Data using Spark MLLib.
+                </div>
+                <div class="curriculum-item">
+                    <strong>Day 5: Data Visualization & NIELIT Capstone</strong>
+                    Storytelling with Tableau/PowerBI, NoSQL integration with MongoDB, and the Final Program Assessment.
+                </div>
+            </div>
         </div>
-        <div class="card">
-            <h3>Feature Two</h3>
-            <p>Describe a key benefit or feature of your service here.</p>
-        </div>
-        <div class="card">
-            <h3>Feature Three</h3>
-            <p>Describe a key benefit or feature of your service here.</p>
-        </div>
-    </main>
+
+    </div>
+
+    
 
     <footer>
-        &copy; 2026 BrandName. All rights reserved.
+        <p><strong>Professional Training Portfolio</strong></p>
+        <p>Verified Training at NIELIT Ropar Campus | Feb 2026</p>
+        <p style="margin-top: 10px; opacity: 0.6;">&copy; Rajan Sahota. All Rights Reserved.</p>
     </footer>
 
 </body>
